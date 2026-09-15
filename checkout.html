@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout — Coolay</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560&family=Outfit:wght@400;500;650&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <a class="logo" href="index.html">
+          <img class="mark" src="assets/favicon.svg" alt="" />
+          Coolay
+        </a>
+        <nav class="nav-links">
+          <a href="shop.html">Back to shop</a>
+        </nav>
+      </header>
+
+      <div class="checkout-layout">
+        <aside class="checkout-card">
+          <p class="kicker">Order</p>
+          <h2 data-plan-name>Coolay</h2>
+          <div class="price" data-plan-price>$49</div>
+          <p data-plan-note>One-time payment. Unlimited access to Coolay.</p>
+        </aside>
+
+        <div>
+        <form class="checkout-card" data-checkout-form novalidate>
+          <p class="kicker">Payment details</p>
+          <h2>Unlock Coolay</h2>
+          <p class="muted">Required for the free trial and the full license. The app stays locked without them.</p>
+
+          <label for="name">Name on card</label>
+          <input id="name" name="name" autocomplete="cc-name" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+
+          <label for="card">Card number</label>
+          <input id="card" name="card" inputmode="numeric" autocomplete="cc-number" placeholder="ACCT-000015" required />
+
+          <div class="row-2">
+            <div>
+              <label for="expiry">Expiry</label>
+              <input id="expiry" name="expiry" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" required />
+            </div>
+            <div>
+              <label for="cvc">CVC</label>
+              <input id="cvc" name="cvc" inputmode="numeric" autocomplete="cc-csc" placeholder="123" required />
+            </div>
+          </div>
+
+          <label for="zip">Billing ZIP</label>
+          <input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" required />
+
+          <p class="form-error" data-form-error hidden></p>
+          <button class="btn btn-ice" type="submit" style="width: 100%; margin-top: 20px">
+            <span data-submit-label>Pay $49</span>
+          </button>
+          <p class="fine">Validated locally. Only the last four digits are stored on this device. No full card number is saved.</p>
+        </form>
+
+        <div class="checkout-card" data-checkout-success hidden>
+          <p class="kicker">Confirmed</p>
+          <h2>Payment details saved</h2>
+          <p class="muted">Access is on this device. The application is not linked yet.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/access.js"></script>
+    <script src="assets/js/checkout.js"></script>
+  </body>
+</html>

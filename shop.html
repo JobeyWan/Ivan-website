@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Coolay</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560&family=Outfit:wght@400;500;650&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <a class="logo" href="index.html">
+          <img class="mark" src="assets/favicon.svg" alt="" />
+          Coolay
+        </a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Menu">☰</button>
+        <nav class="nav-links" data-nav-links>
+          <a href="index.html">Home</a>
+          <a class="is-active" href="shop.html">Shop</a>
+          <a class="btn btn-ice" data-app-link href="shop.html">Get access</a>
+        </nav>
+      </header>
+
+      <section class="section">
+        <div class="section-head">
+          <p class="kicker">Shop</p>
+          <h2>Choose how you enter Coolay.</h2>
+          <p class="muted">Both options need complete payment details before the application unlocks.</p>
+        </div>
+        <p class="banner" data-reason hidden></p>
+        <div class="grid-2">
+          <article class="price-card">
+            <p class="kicker">Try</p>
+            <h3>7-day free trial</h3>
+            <div class="price">$0</div>
+            <p>Today. Card required to start.</p>
+            <ul>
+              <li>Full mixer access for 7 days</li>
+              <li>Save layers on this device</li>
+              <li>Locks automatically when the trial ends</li>
+            </ul>
+            <a class="btn btn-ghost" href="checkout.html?plan=trial">Start free trial</a>
+          </article>
+          <article class="price-card featured">
+            <p class="kicker">Own</p>
+            <h3>Full license</h3>
+            <div class="price">$49</div>
+            <p>One-time. Unlimited Coolay access.</p>
+            <ul>
+              <li>Everything in the trial</li>
+              <li>No expiration on this device</li>
+              <li>Best if you already know the vibe</li>
+            </ul>
+            <a class="btn btn-ice" href="checkout.html?plan=full">Buy Coolay</a>
+          </article>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <span>© <span data-year></span> Coolay</span>
+        <a href="index.html">Back home</a>
+      </footer>
+    </div>
+    <script src="assets/js/access.js"></script>
+    <script src="assets/js/site.js"></script>
+    <script>
+      const reason = new URLSearchParams(location.search).get("reason");
+      const banner = document.querySelector("[data-reason]");
+      if (reason === "locked") {
+        banner.hidden = false;
+        banner.textContent = "Coolay is locked until payment details are completed.";
+      }
+      if (reason === "expired") {
+        banner.hidden = false;
+        banner.textContent = "Your 7-day trial ended. Buy the full license to keep mixing.";
+      }
+    </script>
+  </body>
+</html>
